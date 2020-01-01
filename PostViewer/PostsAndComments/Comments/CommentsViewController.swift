@@ -44,10 +44,22 @@ class CommentsViewController: BaseViewController, UITableViewDelegate {
     
     
     fileprivate func setupPost() {
-        titleLabel.text = self.viewModel.post.title
-        bodyLabel.text = self.viewModel.post.body
-        // put into model
-        favButton.isSelected = self.viewModel.isFav
+        
+        titleLabel.text = PostManager.shared.posts[self.viewModel.postIndex].title
+        bodyLabel.text = PostManager.shared.posts[self.viewModel.postIndex].body
+        favButton.isSelected = PostManager.shared.posts[self.viewModel.postIndex].isFav
+        
+        favButton.rx.controlEvent(.touchUpInside)
+        .asDriver()
+        .drive(onNext: { (_) in
+            if self.favButton.isSelected {
+                self.favButton.isSelected = false
+                PostManager.shared.posts[self.viewModel.postIndex].isFav = false
+            } else {
+                self.favButton.isSelected = true
+                PostManager.shared.posts[self.viewModel.postIndex].isFav = true
+            }
+        }).disposed(by: self.disposeBag)
     }
     
     
@@ -82,8 +94,6 @@ class CommentsViewController: BaseViewController, UITableViewDelegate {
                 
                 self.tableView.rx.setDelegate(self).disposed(by: self.disposeBag)
             }
-            
-            
         }
     }
     

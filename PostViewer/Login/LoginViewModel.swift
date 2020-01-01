@@ -38,8 +38,8 @@ class LoginViewModel {
         do{
             try client.getPostItems().subscribe(
                 onNext: { result in
-                    self.setupPostManager(result.filter { $0.userId == self.userId })
                     self.showLoadingIndicator()
+                    self.setupPostManager(result.filter { $0.userId == self.userId })
                     
             },
                 onError: { error in
