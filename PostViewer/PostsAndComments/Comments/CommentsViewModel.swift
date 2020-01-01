@@ -10,11 +10,6 @@ import Foundation
 import RxSwift
 
 class CommentsViewModel {
-    var post : ClientModel! {
-        didSet {
-            isFav = PostManager.shared.posts.filter{$0.id == post.id}.first!.isFav
-        }
-    }
     
     var isFav:Bool = false
     
@@ -24,6 +19,8 @@ class CommentsViewModel {
     
     let itemsDownloaded = PublishSubject<()>()
     
+    var postIndex = -1;
+    
     
     func getComments() {
         let client = NetworkManager.shared
@@ -31,8 +28,8 @@ class CommentsViewModel {
             try client.getCommentItems().subscribe(
                 onNext: { result in
                     
-                    self.comments = result.filter { $0.postId == self.post.id }
-            },
+                    self.comments = result.filter { $0.postId == PostManager.shared.posts[self.postIndex].id }
+            },	
                 onError: { error in
                     print(error)
             }, onCompleted: {

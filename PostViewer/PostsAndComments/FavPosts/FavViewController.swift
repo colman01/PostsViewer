@@ -33,13 +33,14 @@ class FavViewController: BaseViewController, UITableViewDelegate {
         tableView.estimatedRowHeight = self.estimatedTableCellHeight
         tableView.estimatedRowHeight = UITableView.automaticDimension
         
-        tableView.rx
-            .modelSelected(ClientModel.self)
-            .subscribe(onNext:  { value in
-                self.presentCommentVC(value)
+        tableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                self!.presentCommentVC(indexPath.row)
             })
-            .disposed(by: disposeBag)
+        .disposed(by: self.disposeBag)
+        
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -57,14 +58,16 @@ class FavViewController: BaseViewController, UITableViewDelegate {
                 cell.body.text =  "\(element.body)"
             }
             .disposed(by: disposeBag)
+            
+            
         }
         
     }
     
     
-    func presentCommentVC(_ model : ClientModel) {
+    func presentCommentVC(_ postIndex : Int) {
         let commentsViewModel = CommentsViewModel()
-        commentsViewModel.post = model
+        commentsViewModel.postIndex = postIndex
         
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Comments") as! CommentsViewController
         viewController.viewModel = commentsViewModel
