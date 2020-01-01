@@ -4,7 +4,7 @@
       "id": 1,
       "title": "First Post",
       "userId": "Bob",
-      "body":"first post with another change",
+      "body":"clear;t=0;while [[ ! $t =~ ^\- ]] ; do printf \"\e[0;0f\" ; t=$( echo \"1577836800-$(date +%s.%N)\" | bc );echo $t|figlet -t -f smmono12 --metal; done;yes \"$(seq 231 -1 16)\" |while read i; do printf \"\x1b[48;5;${i}m\n\"; sleep .02; done # Countdown to 50 years of Unix epoch time.",
       "isFav":false
     },
     {
@@ -110,17 +110,17 @@
   "comments": [
     {
       "id": 1,
-      "body": "some comment",
+      "body": "Fails on my end with an \"invalid option\" error by figlet.",
       "postId": 1
     },
     {
       "id": 2,
-      "body": "another comment",
+      "body": "Try changing the figlet -t option  to -w $COLUMNS  I think that -t option might be new. If that's not it, just try removing all the figlet options. It might not be as fun, but should work.",
       "postId": 1
     },
     {
       "id": 3,
-      "body": "some other comment",
+      "body": "gives invalid options on figlet, I changed to -w $COLUMNS -f etc., still gives another invalid options. I am on mint",
       "postId": 1
     },
     {
