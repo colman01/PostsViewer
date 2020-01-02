@@ -23,16 +23,16 @@
     },
     {
       "id": 4,
-      "title": "Fourt Post",
+      "title": "Delete blank lines",
       "userId": "Bob",
-      "body":" post body text",
+      "body":" awk NF",
       "isFav":true
     },
     {
       "id": 5,
-      "title": "Fifth Post",
+      "title": "systems running a Unix-like OS",
       "userId": "Bob",
-      "body":" post body text",
+      "body":" Anybody know what percentage of systems running a Unix-like OS are running Linux?",
       "isFav":false
     },
     {
@@ -160,32 +160,32 @@
     },
     {
       "id": 11,
-      "body": "another comment",
+      "body": "Please define 'blank line'",
       "postId": 4
     },
     {
       "id": 12,
-      "body": "some comment",
+      "body": "Using that implementation, every line which contains nothing but whitespace characters, which is what awk uses by default to split a record into fields.",
       "postId": 4
     },
     {
       "id": 13,
-      "body": "another other comment",
+      "body": "Blank lines give you time to breathe",
       "postId": 4
     },
     {
       "id": 14,
-      "body": "some comment",
+      "body": "Yeah Darwin *is* an Unix-like OS and runs on macs, iPhone, iPad and iPods, even if you don’t like it",
       "postId": 5
     },
     {
       "id": 15,
-      "body": "another comment",
+      "body": "It is  not Unix-like, it is certified  Unix.",
       "postId": 5
     },
     {
       "id": 16,
-      "body": "yet another comment",
+      "body": "Does Android count?",
       "postId": 5
     }
     
