@@ -4,7 +4,7 @@
       "id": 1,
       "title": "First Post",
       "userId": "Bob",
-      "body":"first post with another change",
+      "body":"Tools for cleaning up your system and freeing up space, especially for developers",
       "isFav":false
     },
     {
@@ -110,22 +110,22 @@
   "comments": [
     {
       "id": 1,
-      "body": "some comment",
+      "body": "highly recommend “ncdu” as well on the command line. Fastest way to clean up on a remote server",
       "postId": 1
     },
     {
       "id": 2,
-      "body": "another comment",
+      "body": "There's not even a single explanation what the commands there are actually doing.",
       "postId": 1
     },
     {
       "id": 3,
-      "body": "some other comment",
+      "body": "I mean, that's why there's -h flags.",
       "postId": 1
     },
     {
       "id": 4,
-      "body": "yet another comment",
+      "body": "nice tools",
       "postId": 1
     },
     {
