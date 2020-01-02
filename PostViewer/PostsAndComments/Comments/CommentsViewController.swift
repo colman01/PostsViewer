@@ -65,7 +65,8 @@ class CommentsViewController: BaseViewController, UITableViewDelegate {
     
     fileprivate func setupSubsciption() {
         viewModel.itemsDownloaded.subscribe(onNext: {
-        }, onError: { (Error) in
+        }, onError: { (error) in
+            self.displayAlert("Error downloading","\(error)")
         }, onCompleted: {
             
             self.setupTable()

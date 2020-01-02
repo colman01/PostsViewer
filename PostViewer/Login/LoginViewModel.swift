@@ -55,7 +55,7 @@ class LoginViewModel {
     }
     
     
-    //MARK:- UI adn Navigation
+    //MARK:- Alert and Navigation
     
     fileprivate func displayAlertOrNavigateToPost() {
         if PostManager.shared.posts.isEmpty {
