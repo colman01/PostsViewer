@@ -21,8 +21,6 @@ class CommentsViewController: BaseViewController, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var estimatedTableCellHeight : CGFloat = 120.0
-    
     var dataItems : [CommentsModel] = []
     
     
@@ -84,8 +82,6 @@ class CommentsViewController: BaseViewController, UITableViewDelegate {
                 self.tableView.isHidden = true
             } else {
                 self.tableView.isHidden = false
-                self.tableView.estimatedRowHeight = self.estimatedTableCellHeight
-                self.tableView.estimatedRowHeight = UITableView.automaticDimension
                 Observable.of(self.viewModel.comments).bind(to: self.tableView.rx.items(cellIdentifier: "commentCell", cellType: CommentTableViewCell.self)) { (row, element, cell) in
                     cell.body.text = element.body
                     cell.title.text = PostManager.shared.posts.filter { $0.id == element.postId }.first?.userId
@@ -97,9 +93,5 @@ class CommentsViewController: BaseViewController, UITableViewDelegate {
         }
     }
     
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return estimatedTableCellHeight
-    }
     
 }
